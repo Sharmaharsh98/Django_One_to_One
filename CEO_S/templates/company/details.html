@@ -1,0 +1,37 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+<title>Details</title>
+{% endblock %}
+
+{% block content %}
+<div class="card" style="width: 50% ; height: auto;">
+    <!-- <h5 class="card-title">Card title</h5> -->
+    <table class="table card-table">
+        <thead class="bg-secondary card-text">
+            <tr class="card-text">
+                <th class="card-text">CEO's Name</th>
+                <th class="card-text">Age</th>
+                <th>Gender</th>
+                <th>Salary</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody class="card-text">
+            {% for obj in data %}
+            <tr class="card-text">
+                <td class="card-text">{{obj.full_name}}</td>
+                <td class="card-text">{{obj.age}}</td>
+                <td>{{obj.gender}}</td>
+                <td>{{obj.salary}}</td>
+                <td>
+                    <a href="{% url 'info_update' obj.id %}"><button class="btn btn-outline-warning">UPDATE</button></a>
+                    <a href=""><button class="btn btn-outline-warning">DELETE</button></a>
+                </td>
+                {% endfor %}
+            </tr>
+        </tbody>
+    </table>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+</div>
+{% endblock %}
